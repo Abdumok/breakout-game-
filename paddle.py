@@ -14,3 +14,10 @@ class Paddle:
             part.goto(pos, -250)
             self.all_parts.append(part)
 
+    def go_left(self):
+        for part in self.all_parts:
+            part.goto(part.xcor() -40, part.ycor())
+
+    def go_right(self):
+        for part in self.all_parts:
+            part.goto(part.xcor() + 40, part.ycor())
