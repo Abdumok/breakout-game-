@@ -24,11 +24,17 @@ ball= Ball()
 game_on = True
 while game_on:
     ball.move()
+    # Detect the collision with paddle:
     for part in paddle.all_parts:
         if part.distance(ball) < 20:
             ball.bounce()
+    # Detect the collision with wall
     if ball.xcor() < -590 or ball.xcor() > 590:
         ball.bounce_from_wall()
-
+    # Detect the collision with barriers
+    for barrier in barriers.all_barriers:
+        if ball.distance(barrier) < 50:
+            ball.bounce()
+            barrier.goto(1000,1000)
     window.update()
 window.exitonclick()

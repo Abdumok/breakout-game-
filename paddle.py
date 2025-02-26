@@ -15,9 +15,13 @@ class Paddle:
             self.all_parts.append(part)
 
     def go_left(self):
-        for part in self.all_parts:
-            part.goto(part.xcor() -40, part.ycor())
+        paddle_left_side = self.all_parts[0]
+        if paddle_left_side.xcor() > -560:
+            for part in self.all_parts:
+                part.goto(part.xcor() -40, part.ycor())
 
     def go_right(self):
-        for part in self.all_parts:
-            part.goto(part.xcor() + 40, part.ycor())
+        paddle_right_side = self.all_parts[-1]
+        if paddle_right_side.xcor() < 560:
+            for part in self.all_parts:
+                part.goto(part.xcor() + 40, part.ycor())
