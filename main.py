@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from barriers import Barriers
+from ball import Ball
 
 #Setup Main Screen:
 window= Screen()
@@ -17,8 +18,17 @@ window.onkey(fun=paddle.go_right, key="Right")
 
 
 barriers= Barriers()
+ball= Ball()
+
+
 game_on = True
 while game_on:
-    window.update()
+    ball.move()
+    for part in paddle.all_parts:
+        if part.distance(ball) < 20:
+            ball.bounce()
+    if ball.xcor() < -590 or ball.xcor() > 590:
+        ball.bounce_from_wall()
 
+    window.update()
 window.exitonclick()
