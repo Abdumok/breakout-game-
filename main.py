@@ -38,9 +38,10 @@ while game_on:
         if ball.distance(barrier) < 50:
             ball.bounce()
             barrier.goto(1000,1000)
+            score.increase()
     # IF paddle miss the ball:
     if ball.ycor() < -350:
+        score.decrease_live()
         ball.recenter()
-        time.sleep(1)
     window.update()
 window.exitonclick()

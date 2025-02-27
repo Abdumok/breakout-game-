@@ -9,6 +9,7 @@ class Score(Turtle):
 
 
     def write_score(self):
+        self.clear()
         self.penup()
         self.color("white")
         self.hideturtle()
@@ -17,4 +18,10 @@ class Score(Turtle):
         self.goto(550,280)
         self.write(arg=f"🧡: {self.live}", font=("courier", 12, "bold"), align="center")
 
-    # def write_live
+    def increase(self):
+        self.score += 1
+        self.write_score()
+
+    def decrease_live(self):
+        self.live -= 1
+        self.write_score()
