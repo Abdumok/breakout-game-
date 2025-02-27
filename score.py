@@ -25,3 +25,9 @@ class Score(Turtle):
     def decrease_live(self):
         self.live -= 1
         self.write_score()
+
+    def game_over(self):
+        self.clear()
+        self.goto(0, 0)
+        self.write(arg=f"*** Game Over ***\n Your final score: {self.score}",
+                    font=("courier", 24, "bold"), align="center")

@@ -42,6 +42,11 @@ while game_on:
     # IF paddle miss the ball:
     if ball.ycor() < -350:
         score.decrease_live()
+        if score.live == 0:
+            score.game_over()
+            ball.clear()
+            window.bgcolor("red")
+            game_on = False
         ball.recenter()
     window.update()
 window.exitonclick()
