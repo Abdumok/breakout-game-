@@ -18,3 +18,5 @@ class Ball(Turtle):
     def bounce_from_wall(self):
         self.x_step *= -1
 
+    def recenter(self):
+        self.goto(0,0)

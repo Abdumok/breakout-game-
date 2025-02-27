@@ -1,8 +1,9 @@
+import time
 from turtle import Screen
 from paddle import Paddle
 from barriers import Barriers
 from ball import Ball
-
+from score import Score
 #Setup Main Screen:
 window= Screen()
 window.title("Breakout Game v1.00")
@@ -19,6 +20,7 @@ window.onkey(fun=paddle.go_right, key="Right")
 
 barriers= Barriers()
 ball= Ball()
+score= Score()
 
 
 game_on = True
@@ -36,5 +38,9 @@ while game_on:
         if ball.distance(barrier) < 50:
             ball.bounce()
             barrier.goto(1000,1000)
+    # IF paddle miss the ball:
+    if ball.ycor() < -350:
+        ball.recenter()
+        time.sleep(1)
     window.update()
 window.exitonclick()

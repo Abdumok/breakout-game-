@@ -9,7 +9,7 @@ class Barriers:
         self.create_barriers()
 
     def create_barriers(self):
-        ycor =280
+        ycor =250
         #set number of Rows
         for _ in range(5):
             xcor = -550
