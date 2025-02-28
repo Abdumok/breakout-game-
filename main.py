@@ -11,6 +11,9 @@ window.bgcolor("black")
 window.setup(width=1200, height=600)
 window.tracer(0)
 
+# Ask the player for his name:
+player_name = window.textinput(title="Player Name", prompt="Enter your name:")
+
 paddle= Paddle()
 # control paddle movement:
 window.listen()
@@ -20,7 +23,7 @@ window.onkey(fun=paddle.go_right, key="Right")
 
 barriers= Barriers()
 ball= Ball()
-score= Score()
+score= Score(name=player_name)
 
 
 game_on = True

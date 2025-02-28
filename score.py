@@ -1,10 +1,11 @@
 from turtle import Turtle
 
 class Score(Turtle):
-    def __init__(self):
+    def __init__(self, name):
         super().__init__()
         self.score = 0
         self.live = 5
+        self.name = name
         self.write_score()
 
 
@@ -15,6 +16,8 @@ class Score(Turtle):
         self.hideturtle()
         self.goto(-550, 280)
         self.write(arg=f"SCORE: {self.score}", font=("courier", 12, "bold"), align="center")
+        self.goto(0, 280)
+        self.write(arg=self.name, font=("courier", 12, "bold"), align="center")
         self.goto(550,280)
         self.write(arg=f"🧡: {self.live}", font=("courier", 12, "bold"), align="center")
 
