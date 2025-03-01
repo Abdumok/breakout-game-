@@ -36,12 +36,20 @@ while game_on:
     # Detect the collision with wall
     if ball.xcor() < -590 or ball.xcor() > 590:
         ball.bounce_from_wall()
+    # Detect the collision with top wall:
+    if ball.ycor() > 280:
+        ball.bounce()
     # Detect the collision with barriers
     for barrier in barriers.all_barriers:
         if ball.distance(barrier) < 50:
             ball.bounce()
             barrier.goto(1000,1000)
+            barriers.all_barriers.remove(barrier)
             score.increase()
+            if barriers.all_barriers == 0:
+                window.bgcolor("green")
+                score.winning()
+                game_on = False
     # IF paddle miss the ball:
     if ball.ycor() < -350:
         score.decrease_live()

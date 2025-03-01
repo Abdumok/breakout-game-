@@ -34,3 +34,8 @@ class Score(Turtle):
         self.goto(0, 0)
         self.write(arg=f"*** Game Over ***\n Your final score: {self.score}",
                     font=("courier", 24, "bold"), align="center")
+
+    def winning(self):
+        self.clear()
+        self.goto(0, 0)
+        self.write(arg=f"*** You Won ***", font=("courier", 24, "bold"), align="center")

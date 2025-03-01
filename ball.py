@@ -6,8 +6,8 @@ class Ball(Turtle):
         self.color("white")
         self.penup()
         self.goto(0, 0)
-        self.x_step = 3
-        self.y_step = 3
+        self.x_step = 2
+        self.y_step = 2
 
     def move(self):
         self.goto(self.xcor() - self.x_step, self.ycor() - self.y_step)
